@@ -96,6 +96,9 @@ model.add(keras.layers.GlobalAveragePooling1D())
 # 第三层：上一层的输出向量会出入一个全连接(Dense)层，包含16个隐藏单元
 model.add(keras.layers.Dense(16, activation=tf.nn.relu))
 
+# 加入dropout解决过拟合
+model.add(keras.layers.Dropout(0.5))
+
 # 第四层：与单个输出节点密集连接。应用sigmoid激活函数后，结果时介于0到1之间的浮点数，
 # 表示概率或置信水平
 model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
